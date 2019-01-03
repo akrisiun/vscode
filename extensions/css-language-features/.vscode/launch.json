@@ -24,7 +24,7 @@
 				"${workspaceFolder}/client/out/**/*.js"
 			],
 			"smartStep": true,
-			"preLaunchTask": "npm: compile"
+			// "preLaunchTask": "npm: compile"
 		},
 		{
 			"name": "Launch Tests",
