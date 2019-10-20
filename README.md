@@ -1,5 +1,17 @@
 # Visual Studio Code - Open Source ("Code - OSS")
 
+
+Requeries:
+NodeJS v10
+Python 2.7
+Msbuild 2017 tools v141
+
+Native node-gyp modules:
+    "native-is-elevated": "0.3.0",
+    "native-keymap": "2.0.0",
+    "native-watchdog": "1.2.0",
+    "node-pty": "0.9.0-beta19"
+
 <!-- [![Build Status](https://dev.azure.com/vscode/VSCode/_apis/build/status/VS%20Code?branchName=master)](https://aka.ms/vscode-builds) -->
 [![Build Status](https://dev.azure.com/vscode/VSCode/_apis/build/status/VS%20Code?branchName=master)](https://dev.azure.com/vscode/VSCode/_build/latest?definitionId=12)
 [![Feature Requests](https://img.shields.io/github/issues/Microsoft/vscode/feature-request.svg)](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)

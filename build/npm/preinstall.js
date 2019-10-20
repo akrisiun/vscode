@@ -32,3 +32,7 @@ if (err) {
 	console.error('');
 	process.exit(1);
 }
+
+
+// # gyp ERR! SyntaxError: invalid syntax python node-gyp node10 import sys; print "%s.%s.%s" % sys.version_info[:3];  
+// # gyp ERR! stack

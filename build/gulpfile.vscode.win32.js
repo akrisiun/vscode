@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 'use strict';
-
+// no ia32
 const gulp = require('gulp');
 const path = require('path');
 const fs = require('fs');
@@ -63,7 +63,8 @@ function buildWin32Setup(arch, target) {
 	}
 
 	return cb => {
-		const ia32AppId = target === 'system' ? product.win32AppId : product.win32UserAppId;
+		// 
+        const ia32AppId = target === 'system' ? product.win32AppId : product.win32UserAppId;
 		const x64AppId = target === 'system' ? product.win32x64AppId : product.win32x64UserAppId;
 
 		const sourcePath = buildPath(arch);
@@ -88,12 +89,12 @@ function buildWin32Setup(arch, target) {
 			ShellNameShort: product.win32ShellNameShort,
 			AppMutex: product.win32MutexName,
 			Arch: arch,
-			AppId: arch === 'ia32' ? ia32AppId : x64AppId,
-			IncompatibleTargetAppId: arch === 'ia32' ? product.win32AppId : product.win32x64AppId,
-			IncompatibleArchAppId: arch === 'ia32' ? x64AppId : ia32AppId,
+			AppId: x64AppId,
+			IncompatibleTargetAppId: product.win32x64AppId,
+			IncompatibleArchAppId: ia32AppId,
 			AppUserId: product.win32AppUserModelId,
-			ArchitecturesAllowed: arch === 'ia32' ? '' : 'x64',
-			ArchitecturesInstallIn64BitMode: arch === 'ia32' ? '' : 'x64',
+			ArchitecturesAllowed: 'x64',
+			ArchitecturesInstallIn64BitMode: 'x64',
 			SourceDir: sourcePath,
 			RepoDir: repoPath,
 			OutputDir: outputPath,
@@ -110,9 +111,9 @@ function defineWin32SetupTasks(arch, target) {
 	gulp.task(task.define(`vscode-win32-${arch}-${target}-setup`, task.series(cleanTask, buildWin32Setup(arch, target))));
 }
 
-defineWin32SetupTasks('ia32', 'system');
+// defineWin32SetupTasks('ia32', 'system');
 defineWin32SetupTasks('x64', 'system');
-defineWin32SetupTasks('ia32', 'user');
+// defineWin32SetupTasks('ia32', 'user');
 defineWin32SetupTasks('x64', 'user');
 
 function archiveWin32Setup(arch) {
@@ -125,7 +126,7 @@ function archiveWin32Setup(arch) {
 	};
 }
 
-gulp.task(task.define('vscode-win32-ia32-archive', task.series(util.rimraf(zipDir('ia32')), archiveWin32Setup('ia32'))));
+// gulp.task(task.define('vscode-win32-ia32-archive', task.series(util.rimraf(zipDir('ia32')), archiveWin32Setup('ia32'))));
 gulp.task(task.define('vscode-win32-x64-archive', task.series(util.rimraf(zipDir('x64')), archiveWin32Setup('x64'))));
 
 function copyInnoUpdater(arch) {
@@ -142,10 +143,10 @@ function updateIcon(executablePath) {
 	};
 }
 
-gulp.task(task.define('vscode-win32-ia32-inno-updater', task.series(copyInnoUpdater('ia32'), updateIcon(path.join(buildPath('ia32'), 'tools', 'inno_updater.exe')))));
+// gulp.task(task.define('vscode-win32-ia32-inno-updater', task.series(copyInnoUpdater('ia32'), updateIcon(path.join(buildPath('ia32'), 'tools', 'inno_updater.exe')))));
 gulp.task(task.define('vscode-win32-x64-inno-updater', task.series(copyInnoUpdater('x64'), updateIcon(path.join(buildPath('x64'), 'tools', 'inno_updater.exe')))));
 
 // CodeHelper.exe icon
 
-gulp.task(task.define('vscode-win32-ia32-code-helper', task.series(updateIcon(path.join(buildPath('ia32'), 'resources', 'app', 'out', 'vs', 'platform', 'files', 'node', 'watcher', 'win32', 'CodeHelper.exe')))));
+// gulp.task(task.define('vscode-win32-ia32-code-helper', task.series(updateIcon(path.join(buildPath('ia32'), 'resources', 'app', 'out', 'vs', 'platform', 'files', 'node', 'watcher', 'win32', 'CodeHelper.exe')))));
 gulp.task(task.define('vscode-win32-x64-code-helper', task.series(updateIcon(path.join(buildPath('x64'), 'resources', 'app', 'out', 'vs', 'platform', 'files', 'node', 'watcher', 'win32', 'CodeHelper.exe')))));
