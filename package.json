@@ -102,7 +102,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.6",
     "gulp-vinyl-zip": "^2.1.2",
-    "husky": "^0.13.1",
+    "husky": "^3.0.9",
     "innosetup-compiler": "^5.5.60",
     "is": "^3.1.0",
     "istanbul": "^0.3.17",
