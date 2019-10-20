@@ -1,5 +1,4 @@
-@REM
-@echo off
+@REM @echo off
 setlocal
 
 title VSCode Dev
