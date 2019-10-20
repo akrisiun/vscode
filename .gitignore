@@ -35,3 +35,7 @@ out/vs/workbench/test/
 out/vs/workbench/services/
 out/vs/editor/test/
 out/vs/platform/files/test/
+
+node10/node_modules/
+node10/gyp/
+**/node8/
