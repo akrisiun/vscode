@@ -1,5 +1,4 @@
-@REM
-@echo off
+@REM @echo off
 setlocal
 
 title VSCode Dev
@@ -24,8 +23,10 @@ set VSCODE_CLI=1
 set ELECTRON_DEFAULT_ERROR_MODE=1
 set ELECTRON_ENABLE_LOGGING=1
 set ELECTRON_ENABLE_STACK_DUMPING=1
+set VSCODE_LOGS=
 
 :: Launch Code
+
 %CODE% . %*
 goto end
 

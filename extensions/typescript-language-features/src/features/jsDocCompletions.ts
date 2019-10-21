@@ -81,13 +81,13 @@ class JsDocCompletionProvider implements vscode.CompletionItemProvider {
 		// or could be the opening of a comment
 		const line = document.lineAt(position.line).text;
 		const prefix = line.slice(0, position.character);
-		if (!/^\s*$|\/\*\*\s*$|^\s*\/\*\*+\s*$/.test(prefix)) {
+		if (prefix.match(/^\s*$|\/\*\*\s*$|^\s*\/\*\*+\s*$/) === null) {
 			return false;
 		}
 
 		// And everything after is possibly a closing comment or more whitespace
 		const suffix = line.slice(position.character);
-		return /^\s*(\*+\/)?\s*$/.test(suffix);
+		return suffix.match(/^\s*\*+\//) !== null;
 	}
 }
 

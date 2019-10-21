@@ -1,0 +1,90 @@
+{
+  "name": "code-oss-dev",
+  "version": "1.40.0",
+  "distro": "5327446027a35b9f485d570bf0bb2c854ec8f543",
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "license": "MIT",
+  "main": "./main",
+  "private": true,
+  "scripts": {
+    "compile": "gulp compile --max_old_space_size=4095",
+    "gulp": "gulp --max_old_space_size=8192",
+    "electron": "node build/lib/electron",
+    "download-builtin-extensions": "node build/lib/builtInExtensions.js",
+    "web": "node scripts/code-web.js"
+  },
+  "dependencies": {
+    "applicationinsights": "1.0.8",
+    "chokidar": "3.2.2",
+    "graceful-fs": "4.1.11",
+    "http-proxy-agent": "^2.1.0",
+    "https-proxy-agent": "^2.2.1",
+    "iconv-lite": "0.5.0",
+    "jschardet": "1.6.0",
+    "keytar": "^4.11.0",
+    "native-is-elevated": "0.3.0",
+    "native-keymap": "2.0.0",
+    "native-watchdog": "1.2.0",
+    "node-pty": "0.9.0-beta19",
+    "nsfw": "1.2.5",
+    "onigasm-umd": "^2.2.2",
+    "semver-umd": "^5.5.3",
+    "spdlog": "^0.9.0",
+    "sudo-prompt": "9.0.0",
+    "v8-inspect-profiler": "^0.0.20",
+    "vscode-minimist": "^1.2.1",
+    "vscode-proxy-agent": "0.4.0",
+    "vscode-ripgrep": "^1.5.7",
+    "vscode-sqlite3": "4.0.8",
+    "vscode-textmate": "^4.2.2",
+    "xterm": "4.2.0-beta10",
+    "xterm-addon-search": "0.3.0-beta5",
+    "xterm-addon-web-links": "0.2.0",
+    "yauzl": "^2.9.2",
+    "yazl": "^2.4.3"
+  },
+  "devDependencies": {
+    "7zip": "0.0.6",
+    "@types/node": "^10.12.12",
+    "@types/semver": "^5.5.0",
+    "@types/sinon": "^1.16.36",
+    "@types/webpack": "^4.4.10",
+    "@types/winreg": "^1.2.30",
+    "ansi-colors": "^3.2.3",
+    "asar": "^0.14.0",
+    "express": "^4.13.1",
+    "husky": "^0.13.1",
+    "innosetup": "5.6.1",
+    "is": "^3.1.0",
+    "source-map": "^0.4.4",
+    "ts-loader": "^4.4.2",
+    "tslint": "^5.16.0",
+    "typescript": "3.7.0-dev.20191017",
+    "typescript-formatter": "7.1.0",
+    "underscore": "^1.8.2",
+    "vinyl": "^2.0.0",
+    "vinyl-fs": "^3.0.0",
+    "vsce": "1.48.0",
+    "vscode-debugprotocol": "1.37.0",
+    "vscode-nls-dev": "^3.3.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.3.8",
+    "webpack-stream": "^5.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Microsoft/vscode/issues"
+  },
+  "optionalDependencies": {
+    "vscode-windows-ca-certs": "0.1.0",
+    "vscode-windows-registry": "1.0.2",
+    "windows-foreground-love": "0.2.0",
+    "windows-mutex": "0.3.0",
+    "windows-process-tree": "0.2.4"
+  }
+}

@@ -16,8 +16,13 @@ const opn = require('opn');
 const minimist = require('vscode-minimist');
 
 const APP_ROOT = path.dirname(__dirname);
+
+// inspect-brk=10298
+// const APP_ROOT = path.dirname("e:/Beta/js");
+// C:\Program Files (x86)\Yarn\bin\yarn.cmd web --inspect-brk=10298
+
 const WEB_MAIN = path.join(APP_ROOT, 'src', 'vs', 'code', 'browser', 'workbench', 'workbench-dev.html');
-const PORT = 8080;
+const PORT = 8088;
 
 const args = minimist(process.argv, {
 	string: [
@@ -199,7 +204,8 @@ async function serveFile(req, res, filePath, responseHeaders = Object.create(nul
 		const stat = await util.promisify(fs.stat)(filePath);
 
 		// Check if file modified since
-		const etag = `W/"${[stat.ino, stat.size, stat.mtime.getTime()].join('-')}"`; // weak validator (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag)
+		const etag = `W/"${[stat.ino, stat.size, stat.mtime.getTime()].join('-')}"`;
+		// weak validator (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag)
 		if (req.headers['if-none-match'] === etag) {
 			res.writeHead(304);
 			return res.end();
