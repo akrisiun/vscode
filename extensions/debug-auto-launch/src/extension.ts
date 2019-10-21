@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import * as nls from 'vscode-nls';
+import * as nls from 'vscode-nls'; // vscode-nls-dev';
 
 const localize = nls.loadMessageBundle();
 const ON_TEXT = localize('status.text.auto.attach.on', "Auto Attach: On");

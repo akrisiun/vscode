@@ -12,6 +12,7 @@ const gulp = require('gulp');
 const util = require('./build/lib/util');
 const task = require('./build/lib/task');
 const path = require('path');
+
 const compilation = require('./build/lib/compilation');
 const { monacoTypecheckTask/* , monacoTypecheckWatchTask */ } = require('./build/gulpfile.editor');
 const { compileExtensionsTask, watchExtensionsTask } = require('./build/gulpfile.extensions');

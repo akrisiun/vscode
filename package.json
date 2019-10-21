@@ -1,33 +1,14 @@
 {
-  "name": "code-oss-dev",
-  "version": "1.40.0",
-  "distro": "c46805b884619dd41f9aac4aa6ba413e4bc227a7",
-  "author": {
-    "name": "Microsoft Corporation"
-  },
+  "name": "code-oss-web",
+  "version": "0.40.0",
   "license": "MIT",
   "main": "./out/main",
   "private": true,
   "scripts": {
-    "test": "mocha",
-    "preinstall": "node build/npm/preinstall.js",
-    "postinstall": "node build/npm/postinstall.js",
-    "compile": "gulp compile --max_old_space_size=4095",
-    "watch": "gulp watch --max_old_space_size=4095",
-    "watch-client": "gulp watch-client --max_old_space_size=4095",
-    "monaco-editor-test": "mocha --only-monaco-editor",
-    "precommit": "node build/gulpfile.hygiene.js",
+    "web": "node scripts/code-web.js",
+    "debug": "node scripts/debug.js",
     "gulp": "gulp --max_old_space_size=8192",
-    "electron": "node build/lib/electron",
-    "7z": "7z",
-    "update-grammars": "node build/npm/update-all-grammars.js",
-    "update-localization-extension": "node build/npm/update-localization-extension.js",
-    "smoketest": "cd test/smoke && node test/index.js",
-    "download-builtin-extensions": "node build/lib/builtInExtensions.js",
-    "monaco-compile-check": "tsc -p src/tsconfig.monaco.json --noEmit",
-    "strict-initialization-watch": "tsc --watch -p src/tsconfig.json --noEmit --strictPropertyInitialization",
-    "update-distro": "node build/npm/update-distro.js",
-    "web": "node scripts/code-web.js"
+    "compile": "gulp compile --max_old_space_size=4095"
   },
   "dependencies": {
     "applicationinsights": "1.0.8",
@@ -37,25 +18,21 @@
     "https-proxy-agent": "^2.2.1",
     "iconv-lite": "0.5.0",
     "jschardet": "1.6.0",
+    "jsonc-parser": "^2.1.1",
     "keytar": "^4.11.0",
-    "native-is-elevated": "0.3.0",
-    "native-keymap": "2.0.0",
-    "native-watchdog": "1.2.0",
-    "node-pty": "0.9.0-beta19",
     "nsfw": "1.2.5",
     "onigasm-umd": "^2.2.2",
+    "opn": "^6.0.0",
     "semver-umd": "^5.5.3",
     "spdlog": "^0.9.0",
     "sudo-prompt": "9.0.0",
     "v8-inspect-profiler": "^0.0.20",
     "vscode-minimist": "^1.2.1",
+    "vscode-nls": "^4.0.0",
     "vscode-proxy-agent": "0.4.0",
     "vscode-ripgrep": "^1.5.7",
     "vscode-sqlite3": "4.0.8",
     "vscode-textmate": "^4.2.2",
-    "xterm": "^4.2.0-beta20",
-    "xterm-addon-search": "0.3.0-beta5",
-    "xterm-addon-web-links": "0.2.1",
     "yauzl": "^2.9.2",
     "yazl": "^2.4.3"
   },
@@ -102,8 +79,6 @@
     "gulp-tslint": "^8.1.3",
     "gulp-untar": "^0.0.7",
     "gulp-vinyl-zip": "^2.1.2",
-    "husky": "^0.13.1",
-    "innosetup": "5.6.1",
     "is": "^3.1.0",
     "istanbul-lib-coverage": "^2.0.5",
     "istanbul-lib-instrument": "^3.3.0",
@@ -145,14 +120,9 @@
     "type": "git",
     "url": "https://github.com/Microsoft/vscode.git"
   },
-  "bugs": {
-    "url": "https://github.com/Microsoft/vscode/issues"
-  },
   "optionalDependencies": {
     "vscode-windows-ca-certs": "0.1.0",
     "vscode-windows-registry": "1.0.2",
-    "windows-foreground-love": "0.2.0",
-    "windows-mutex": "0.3.0",
-    "windows-process-tree": "0.2.4"
+    "windows-mutex": "0.3.0"
   }
 }

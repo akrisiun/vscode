@@ -17,7 +17,7 @@ exports.base = [{
 
 exports.workerExtensionHost = [entrypoint('vs/workbench/services/extensions/worker/extensionHostWorker')];
 
-exports.workbenchDesktop = require('./vs/workbench/buildfile.desktop').collectModules();
+// exports.workbenchDesktop = require('./vs/workbench/buildfile.desktop').collectModules();
 exports.workbenchWeb = require('./vs/workbench/buildfile.web').collectModules();
 
 exports.keyboardMaps = [

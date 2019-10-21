@@ -29,18 +29,12 @@ node10/
 **/*.js.map
 extensions/php-language-features/
 out/vs/base/test/
-out/vs/editor/contrib/documentSymbols/
-
 out/vs/workbench/test/
-out/vs/workbench/services/
 out/vs/editor/test/
 out/vs/platform/files/test/
-
 node10/node_modules/
 node10/gyp/
 **/node8/
-out/build/
-out/builtInExtensions/
 out/electron/locales/
 out/windows-foreground-love/
 out/electron/*.pak
@@ -48,3 +42,5 @@ out/electron/*.bin
 out/electron/*.dat
 out/electron/*.exe
 build/Release/foreground_love.*
+
+extensions/**/out/

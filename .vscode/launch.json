@@ -12,12 +12,21 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "web :8088 / debug :9249",
+			"name": "Gulp Build",
+			"program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
+			"stopOnEntry": true,
+			"args": [
+				"hygiene"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch VS Code (Web)",
 			"runtimeExecutable": "yarn",
 			"runtimeArgs": [
 				"web"
 			],
-			"protocol": "inspector",
 			"stopOnEntry": false
 		},
 		{
@@ -29,16 +38,6 @@
 				"debug"
 			],
 			"stopOnEntry": true
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Gulp Build",
-			"program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
-			"stopOnEntry": true,
-			"args": [
-				"hygiene"
-			]
 		},
 		{
 			"type": "chrome",

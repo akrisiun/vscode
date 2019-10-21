@@ -7,9 +7,10 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as cp from 'child_process';
 import * as vscode from 'vscode';
-import * as nls from 'vscode-nls';
+// import * as nls from 'vscode-nls-dev'; // vscode-nls';
+import { loadMessageBundle } from 'vscode-nls';
 
-const localize = nls.loadMessageBundle();
+const localize = loadMessageBundle();
 
 type AutoDetect = 'on' | 'off';
 
