@@ -45,3 +45,4 @@ build/Release/foreground_love.*
 
 extensions/**/out/
 dist/
+*.vsix

@@ -2,7 +2,7 @@
 	"name": "cat-coding",
 	"description": "Cat Coding - A Webview API Sample",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"publisher": "code-sample",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -37,7 +37,8 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"lint": "tslint -p ./",
-		"watch": "tsc -w -p ./"
+		"watch": "tsc -w -p ./",
+        "pack": "vsce package"
 	},
 	"dependencies": {},
 	"devDependencies": {
