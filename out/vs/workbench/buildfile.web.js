@@ -19,7 +19,9 @@ function createModuleDescription(name, exclude) {
 
 exports.collectModules = function () {
 	return [
-		createModuleDescription('vs/workbench/contrib/output/common/outputLinkComputer', ['vs/base/common/worker/simpleWorker', 'vs/editor/common/services/editorSimpleWorker']),
-		createModuleDescription('vs/code/browser/workbench/workbench', ['vs/workbench/workbench.web.api']),
+		createModuleDescription('vs/workbench/contrib/output/common/outputLinkComputer',
+		 	['vs/base/common/worker/simpleWorker', 'vs/editor/common/services/editorSimpleWorker']),
+		createModuleDescription('vs/code/browser/workbench/workbench',
+			['vs/workbench/workbench.web.api']),
 	];
 };

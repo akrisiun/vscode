@@ -135,10 +135,11 @@ async function handleRoot(req, res) {
 	});
 
 	const data = (await util.promisify(fs.readFile)(WEB_MAIN)).toString()
+		/* ankr: TODO
 		.replace('{{WORKBENCH_WEB_CONFIGURATION}}', escapeAttribute(JSON.stringify({
 			staticExtensions,
 			folderUri: { scheme: 'memfs', path: `/` }
-		})))
+		})))  */
 		.replace('{{WEBVIEW_ENDPOINT}}', '')
 		.replace('{{REMOTE_USER_DATA_URI}}', '');
 

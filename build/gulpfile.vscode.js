@@ -323,13 +323,9 @@ function packageTask(platform, arch, sourceFolderName, destinationFolderName, op
 const buildRoot = path.dirname(root);
 
 const BUILD_TARGETS = [
-	{ platform: 'win32', arch: 'ia32' },
 	{ platform: 'win32', arch: 'x64' },
 	{ platform: 'darwin', arch: null, opts: { stats: true } },
-	{ platform: 'linux', arch: 'ia32' },
 	{ platform: 'linux', arch: 'x64' },
-	{ platform: 'linux', arch: 'arm' },
-	{ platform: 'linux', arch: 'arm64' },
 ];
 BUILD_TARGETS.forEach(buildTarget => {
 	const dashed = (str) => (str ? `-${str}` : ``);
@@ -360,18 +356,7 @@ BUILD_TARGETS.forEach(buildTarget => {
 // Transifex Localizations
 
 const innoSetupConfig = {
-	'zh-cn': { codePage: 'CP936', defaultInfo: { name: 'Simplified Chinese', id: '$0804', } },
-	'zh-tw': { codePage: 'CP950', defaultInfo: { name: 'Traditional Chinese', id: '$0404' } },
-	'ko': { codePage: 'CP949', defaultInfo: { name: 'Korean', id: '$0412' } },
-	'ja': { codePage: 'CP932' },
-	'de': { codePage: 'CP1252' },
-	'fr': { codePage: 'CP1252' },
-	'es': { codePage: 'CP1252' },
-	'ru': { codePage: 'CP1251' },
-	'it': { codePage: 'CP1252' },
-	'pt-br': { codePage: 'CP1252' },
-	'hu': { codePage: 'CP1250' },
-	'tr': { codePage: 'CP1254' }
+	'ru': { codePage: 'CP1251' }
 };
 
 const apiHostname = process.env.TRANSIFEX_API_URL;

@@ -196,7 +196,8 @@ gulp.task('tslint', () => {
 		// Core: include type information (required by certain rules like no-nodejs-globals)
 		vfs.src(all, { base: '.', follow: true, allowEmpty: true })
 			.pipe(filter(tslintCoreFilter))
-			.pipe(gulptslint.default({ rulesDirectory: 'build/lib/tslint', program: tslint.Linter.createProgram('src/tsconfig.json') }))
+			.pipe(gulptslint.default({ rulesDirectory: 'build/lib/tslint',
+				  program: tslint.Linter.createProgram('src/tsconfig.json') }))
 			.pipe(gulptslint.default.report({ emitError: true })),
 
 		// Exenstions: do not include type information

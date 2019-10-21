@@ -139,7 +139,8 @@ class BrowserMain extends Disposable {
 		}
 	}
 
-	private async initServices(): Promise<{ serviceCollection: ServiceCollection, logService: ILogService, storageService: BrowserStorageService }> {
+	private async initServices(): Promise<{ serviceCollection: ServiceCollection, 
+        logService: ILogService, storageService: BrowserStorageService }> {
 		const serviceCollection = new ServiceCollection();
 
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

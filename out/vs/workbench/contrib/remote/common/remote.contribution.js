@@ -11,7 +11,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-define(["require", "exports", "vs/workbench/common/contributions", "vs/platform/registry/common/platform", "vs/platform/label/common/label", "vs/base/common/platform", "vs/base/common/network", "vs/workbench/services/remote/common/remoteAgentService", "vs/platform/log/common/log", "vs/platform/log/common/logIpc", "vs/workbench/contrib/output/common/output", "vs/nls", "vs/base/common/resources", "vs/base/common/lifecycle", "vs/workbench/common/views"], function (require, exports, contributions_1, platform_1, label_1, platform_2, network_1, remoteAgentService_1, log_1, logIpc_1, output_1, nls_1, resources_1, lifecycle_1, views_1) {
+define(["require", "exports", "vs/workbench/common/contributions",
+"vs/platform/registry/common/platform", "vs/platform/label/common/label", "vs/base/common/platform",
+ "vs/base/common/network", "vs/workbench/services/remote/common/remoteAgentService",
+ "vs/platform/log/common/log", "vs/platform/log/common/logIpc", "vs/workbench/contrib/output/common/output",
+ "vs/nls", "vs/base/common/resources", "vs/base/common/lifecycle",
+ "vs/workbench/common/views"], function (
+     require, exports, contributions_1, platform_1, label_1, platform_2, network_1,
+     remoteAgentService_1, log_1, logIpc_1, output_1, nls_1, resources_1, lifecycle_1, views_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.VIEWLET_ID = 'workbench.view.remote';

@@ -44,3 +44,4 @@ out/electron/*.exe
 build/Release/foreground_love.*
 
 extensions/**/out/
+dist/
