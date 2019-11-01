@@ -1,0 +1,1 @@
+{"version":3,"file":"renderDocument.js","sourceRoot":"../../src","sources":["commands/renderDocument.ts"],"names":[],"mappings":";AAAA;;;gGAGgG;;AAMhG,MAAa,cAAc;IAG1B,YACkB,MAAsB;QAAtB,WAAM,GAAN,MAAM,CAAgB;QAHxB,OAAE,GAAG,qBAAqB,CAAC;IAIvC,CAAC;IAEE,KAAK,CAAC,OAAO,CAAC,QAAqC;QACzD,OAAO,IAAI,CAAC,MAAM,CAAC,MAAM,CAAC,QAAQ,CAAC,CAAC;IACrC,CAAC;CACD;AAVD,wCAUC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"pythonMain.js","sourceRoot":"../src","sources":["pythonMain.ts"],"names":[],"mappings":";AAAA;;;gGAGgG;;AAEhG,mCAAmE;AAEnE,SAAgB,QAAQ,CAAC,QAA0B;IAClD,kBAAS,CAAC,wBAAwB,CAAC,QAAQ,EAAE;QAC5C,YAAY,EAAE;YACb;gBACC,UAAU,EAAE,gFAAgF;gBAC5F,MAAM,EAAE,EAAE,YAAY,EAAE,qBAAY,CAAC,MAAM,EAAE;aAC7C;SACD;KACD,CAAC,CAAC;AACJ,CAAC;AATD,4BASC"}

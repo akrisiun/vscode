@@ -1,0 +1,1 @@
+{"version":3,"file":"toggleLock.js","sourceRoot":"../../src","sources":["commands/toggleLock.ts"],"names":[],"mappings":";AAAA;;;gGAGgG;;AAKhG,MAAa,iBAAiB;IAG7B,YACkB,cAAsC;QAAtC,mBAAc,GAAd,cAAc,CAAwB;QAHxC,OAAE,GAAG,6BAA6B,CAAC;IAI/C,CAAC;IAEE,OAAO;QACb,IAAI,CAAC,cAAc,CAAC,UAAU,EAAE,CAAC;IAClC,CAAC;CACD;AAVD,8CAUC"}
