@@ -19,7 +19,7 @@ debugger;
 var i = 0;
 setInterval(() => {
    console.log('hello world:' + i++);
-   debugger;
+   // debugger;
 }, 1000);
 
 console.warn("OK? Debug.");

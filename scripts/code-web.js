@@ -30,6 +30,15 @@ const args = minimist(process.argv, {
 	]
 });
 
+console.log('Press any key to exit');
+
+// 'vscode-textmate': `${window.location.origin}/static/remote/web/node_modules/vscode-textmate/release/main`,
+// 'onigasm-umd': `${window.location.origin}/static/remote/web/node_modules/onigasm-umd/release/main`,
+// 'xterm': `${window.location.origin}/static/remote/web/node_modules/xterm/lib/xterm.js`,
+// 'xterm-addon-search': `${window.location.origin}/static/remote/web/node_modules/xterm-addon-search/lib/xterm-addon-search.js`,
+// 'xterm-addon-web-links': `${window.location.origin}/static/remote/web/node_modules/xterm-addon-web-links/lib/xterm-addon-web-links.js`,
+// 'semver-umd': `${window.location.origin}/static/remote/web/node_modules/semver-umd/lib/semver-umd.js`,
+
 const server = http.createServer((req, res) => {
 	const parsedUrl = url.parse(req.url, true);
 	const pathname = parsedUrl.pathname;
@@ -38,6 +47,15 @@ const server = http.createServer((req, res) => {
 		if (pathname === '/favicon.ico') {
 			// favicon
 			return serveFile(req, res, path.join(APP_ROOT, 'resources', 'win32', 'code.ico'));
+		}
+
+		// /out/vs/workbench/browser/workbench.js
+		// E:\Beta\js\vscode-web\src\vs\code\browser\workbench\workbench.ts:0
+		// http://localhost:8088/static/out/vs/workbench/browser/workbench.js
+
+		// console.log("web:", pathname);
+		if ("/manifest.json" === pathname) {
+			return handleStatic(req, res, parsedUrl);
 		}
 		if (/^\/static\//.test(pathname)) {
 			// static requests
@@ -60,9 +78,32 @@ const server = http.createServer((req, res) => {
 	}
 });
 
-server.listen(PORT, () => {
-	console.log(`Web UI available at http://localhost:${PORT}`);
-});
+let isListen = false;
+function listen() {
+	if (!isListen) {
+		isListen = true;
+
+		server.listen(PORT, () => {
+			console.log(`Web UI available at http://localhost:${PORT}`);
+		});
+	}
+}
+
+process.stdin.setRawMode(true);
+process.stdin.resume();
+process.stdin.on("keypress", function(chunk, key) {
+	if(key && key.name === "c" && key.ctrl) {
+	  console.log(" bye bye");
+	  process.exit();
+	}
+  });
+
+process.stdin.on('data', (args) => {
+		listen();
+		// process.exit.bind(process, 0);
+	}
+);
+
 
 server.on('error', err => {
 	console.error(`Error occurred in server:`);

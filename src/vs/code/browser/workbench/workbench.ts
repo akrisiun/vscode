@@ -261,7 +261,8 @@ if (!configElement || !configElementAttribute) {
 	throw new Error('Missing web configuration element');
 }
 
-const options: IWorkbenchConstructionOptions & { folderUri?: UriComponents, workspaceUri?: UriComponents } = JSON.parse(configElementAttribute);
+const options: IWorkbenchConstructionOptions & { folderUri?: UriComponents, workspaceUri?: UriComponents }
+    = JSON.parse(configElementAttribute);
 options.workspaceProvider = new WorkspaceProvider(options.folderUri ? { folderUri: URI.revive(options.folderUri) } : options.workspaceUri ? { workspaceUri: URI.revive(options.workspaceUri) } : undefined);
 options.urlCallbackProvider = new PollingURLCallbackProvider();
 options.credentialsProvider = new LocalStorageCredentialsProvider();

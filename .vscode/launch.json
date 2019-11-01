@@ -51,7 +51,8 @@
 			"request": "launch",
 			"name": "Launch VS Code (Web, Chrome)",
 			"url": "http://localhost:8088",
-			"preLaunchTask": "Run web"
+			"preLaunchTask": "Run web",
+			"runtimeExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge Dev\\Application\\msedge.exe"
 		},
 		{
 			"type": "node",
