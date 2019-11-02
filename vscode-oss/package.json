@@ -1,0 +1,83 @@
+{
+  "name": "vscode-oss",
+  "version": "1.40.0",
+  "distro": "d17c0d0353511f30b7f251bcb29f400b294bec36",
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "license": "MIT",
+  "main": "./main",
+  "private": true,
+  "engines": {
+    "vscode": "^1.32"
+  },
+  "scripts": {
+    "start": "./electron/Code-OSS.exe ."
+  },
+  "dependencies": {
+    "applicationinsights": "1.0.8",
+    "chokidar": "3.2.3",
+    "graceful-fs": "4.1.11",
+    "http-proxy-agent": "^2.1.0",
+    "https-proxy-agent": "^2.2.3",
+    "iconv-lite": "0.5.0",
+    "jschardet": "1.6.0",
+    "keytar": "^4.11.0",
+    "native-is-elevated": "0.3.0",
+    "native-keymap": "2.0.0",
+    "native-watchdog": "1.2.0",
+    "node-pty": "^0.10.0-beta2",
+    "nsfw": "1.2.5",
+    "onigasm-umd": "^2.2.2",
+    "semver-umd": "^5.5.3",
+    "spdlog": "^0.9.0",
+    "sudo-prompt": "9.0.0",
+    "v8-inspect-profiler": "^0.0.20",
+    "vscode-json-languageservice": "3.4.1",
+    "vscode-minimist": "^1.2.1",
+    "vscode-proxy-agent": "^0.5.1",
+    "vscode-ripgrep": "^1.5.7",
+    "vscode-sqlite3": "4.0.8",
+    "vscode-textmate": "^4.3.0",
+    "vscode-uri": "2.0.3",
+    "xterm": "4.2.0",
+    "xterm-addon-search": "0.3.0",
+    "xterm-addon-web-links": "0.2.1",
+    "yauzl": "^2.9.2",
+    "yazl": "^2.4.3"
+  },
+  "devDependencies": {
+    "7zip": "0.0.6",
+    "ansi-colors": "^3.2.3",
+    "asar": "^2.0.1",
+    "chromium-pickle-js": "^0.2.0",
+    "electron-builder": "^22.1.0",
+    "glob": "^5.0.13",
+    "gulp": "4.0.0",
+    "gulp-atom-electron": "^1.22.0",
+    "is": "^3.1.0",
+    "lazy.js": "^0.4.2",
+    "optimist": "0.3.5",
+    "rimraf": "^2.2.8",
+    "source-map": "^0.4.4",
+    "ts-loader": "^4.4.2",
+    "tslint": "^5.16.0",
+    "typescript": "3.7.1-rc",
+    "typescript-formatter": "7.1.0",
+    "underscore": "^1.8.2",
+    "vsce": "1.48.0",
+    "vscode-debugprotocol": "1.37.0",
+    "vscode-nls-dev": "^3.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akrisiun/vscode.git"
+  },
+  "optionalDependencies": {
+    "vscode-windows-ca-certs": "0.2.0",
+    "vscode-windows-registry": "1.0.2",
+    "windows-foreground-love": "0.2.0",
+    "windows-mutex": "0.3.0",
+    "windows-process-tree": "0.2.4"
+  }
+}

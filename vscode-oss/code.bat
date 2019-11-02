@@ -1,0 +1,1 @@
+start "" .\electron\Code-OSS.exe . %*
