@@ -1,3 +1,35 @@
+## git clone small  single-branch
+```
+git clone  -b develop --single-branch git@github.com:akrisiun/vscode.git
+git clone  -b develop --single-branch https://github.com/akrisiun/vscode
+git clone  https://github.com/microsoft/vscode vscode40 --single-branch -b release/1.40
+
+git remote add origin https://github.com/akrisiun/vscode
+ 
+# ssh git with ed255
+git remote rm  origin
+git remote add origin git@github.com:akrisiun/vscode.git
+git push -u origin develop
+
+git push -u origin release/1.39
+git push -u origin release/1.40
+```
+
+###  Debian 9 (strench) prepare
+
+FROM debian:stretch
+```
+cat /etc/issue
+node -e "console.log(os.platform(), os.release())"
+
+sudo apt-get install -y openssl net-tools git locales sudo dumb-init vim nano
+sudo apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
+npm i -g node-gyp gulp@4.0.0
+```
+
+Perhaps you should add the directory containing `xkbfile.pc'
+to the PKG_CONFIG_PATH environment variable
+
 # Visual Studio Code - Open Source ("Code - OSS")
 
 <!-- [![Build Status](https://dev.azure.com/vscode/VSCode/_apis/build/status/VS%20Code?branchName=master)](https://aka.ms/vscode-builds) -->
@@ -39,7 +71,6 @@ please see the document [How to Contribute](https://github.com/Microsoft/vscode/
 * [The development workflow, including debugging and running tests](https://github.com/Microsoft/vscode/wiki/How-to-Contribute#debugging)
 * [Coding guidelines](https://github.com/Microsoft/vscode/wiki/Coding-Guidelines)
 * [Submitting pull requests](https://github.com/Microsoft/vscode/wiki/How-to-Contribute#pull-requests)
-* [Finding an issue to work on](https://github.com/microsoft/vscode/wiki/How-to-Contribute#where-to-contribute)
 * [Contributing to translations](https://aka.ms/vscodeloc)
 
 ## Feedback

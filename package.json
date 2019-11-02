@@ -8,15 +8,23 @@
   "license": "MIT",
   "main": "./out/main",
   "private": true,
+  "engines": {
+    "vscode": "^1.32"
+  },
   "scripts": {
     "test": "mocha",
     "preinstall": "node build/npm/preinstall.js",
     "postinstall": "node build/npm/postinstall.js",
+    "tasks": "gulp --tasks",
     "compile": "gulp compile --max_old_space_size=4095",
+    "compile:c": "gulp compile-client --max-old-space-size=32384",
+    "compile:b": "gulp compile-build --max-old-space-size=32384",
+    "compile:r": "gulp vscode-reh-web-darwin-min --max_old_space_size=34095",
+    "compile:w": "gulp vscode-web --max_old_space_size=34095",
     "watch": "gulp watch --max_old_space_size=4095",
     "watch-client": "gulp watch-client --max_old_space_size=4095",
     "monaco-editor-test": "mocha --only-monaco-editor",
-    "precommit": "node build/gulpfile.hygiene.js",
+    "precommit1": "node build/gulpfile.hygiene.js",
     "gulp": "gulp --max_old_space_size=8192",
     "electron": "node build/lib/electron",
     "7z": "7z",
@@ -146,10 +154,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode.git"
+    "url": "https://github.com/akrisiun/vscode.git"
   },
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode/issues"
+    "url": "https://github.com/akrisiun/vscode/issues"
   },
   "optionalDependencies": {
     "vscode-windows-ca-certs": "0.2.0",
