@@ -51,7 +51,9 @@ exports.load = function (entrypoint, onLoad, onError) {
 	}
 
 	onLoad = onLoad || function () { };
-	onError = onError || function (err) { console.error(err); };
+	onError = onError || function (err) {
+		console.error("loader err", err);
+	};
 
 	loader([entrypoint], onLoad, onError);
 };

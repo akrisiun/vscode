@@ -1,6 +1,17 @@
 
 const verbose = 1;
-define(["require", "exports", "child_process", "os", "path", "vs/base/common/errors", "vs/code/node/cliProcessMain", "vs/code/node/paths", "vs/platform/environment/node/argv", "vs/platform/environment/node/argvHelper", "vs/platform/product/common/product", "vs/server/src/node/ipc", "vs/server/src/node/marketplace", "vs/server/src/node/server", "vs/server/src/node/util"], function (require, exports, cp, os, path, errors_1, cliProcessMain_1, paths_1, argv_1, argvHelper_1, product_1, ipc_1, marketplace_1, server_1, util_1) {
+define(["require", "exports", "child_process", "os", "path",
+    "../../../../../out/vs/base/common/errors",
+    "../../../../../out/vs/code/node/cliProcessMain",
+    "../../../../../out/vs/code/node/paths",
+    "../../../../../out/vs/platform/environment/node/argv",
+    "../../../../../out/vs/platform/environment/node/argvHelper",
+    "../../../../../out/vs/platform/product/common/product",
+    "../../../../../out/vs/server/src/node/ipc",
+    "../../../../../out/vs/server/src/node/marketplace",
+    "../../../../../out/vs/server/src/node/server",
+    "../../../../../out/vs/server/src/node/util"],
+    function (require, exports, cp, os, path, errors_1, cliProcessMain_1, paths_1, argv_1, argvHelper_1, product_1, ipc_1, marketplace_1, server_1, util_1) {
     "use strict";
 
     console.log("server/cli starting...");

@@ -1,18 +1,24 @@
 import * as cp from 'child_process';
 import * as os from 'os';
 import * as path from 'path';
-import { setUnexpectedErrorHandler } from 'vs/base/common/errors';
-import { main as vsCli } from 'vs/code/node/cliProcessMain';
-import { validatePaths } from 'vs/code/node/paths';
-import { ParsedArgs } from 'vs/platform/environment/common/environment';
-import { buildHelpMessage, buildVersionMessage, Option as VsOption, OPTIONS, OptionDescriptions } from 'vs/platform/environment/node/argv';
-import { parseMainProcessArgv } from 'vs/platform/environment/node/argvHelper';
-import product from 'vs/platform/product/common/product';
-import { ipcMain } from 'vs/server/src/node/ipc';
-import { enableCustomMarketplace } from 'vs/server/src/node/marketplace';
-import { MainServer } from 'vs/server/src/node/server';
-import { AuthType, buildAllowedMessage, enumToArray, FormatType, generateCertificate, generatePassword, localRequire, open, unpackExecutables } from "vs/server/src/node/util";
+// src\vs\server\src\node\cli.ts
+import { setUnexpectedErrorHandler } from '../../../../vs/base/common/errors';
+import { main as vsCli } from '../../../../vs/code/node/cliProcessMain';
+import { validatePaths } from '../../../../vs/code/node/paths';
+import { ParsedArgs } from '../../../../vs/platform/environment/common/environment';
+import { buildHelpMessage, buildVersionMessage, Option as VsOption, OPTIONS, OptionDescriptions }
+			   from '../../../../vs/platform/environment/node/argv';
+import { parseMainProcessArgv } from '../../../../vs/platform/environment/node/argvHelper';
+import product from '../../../../vs/platform/product/common/product';
+import { AuthType, buildAllowedMessage, enumToArray, FormatType, generateCertificate, generatePassword, localRequire,
+		open, unpackExecutables }
+			   from './util';
+import { ipcMain } from './ipc'; // ./../../vs/server/src/node/ipc';
+import { enableCustomMarketplace } from './marketplace';
+import { MainServer } from './server';
 
+// have a declaration for the 'Promise' constructor or include 'ES2015' in your `--lib` option
+// tslint:disable: no-unexternalized-strings
 const { logger } = localRequire<typeof import("@coder/logger/out/index")>("@coder/logger/out/index");
 setUnexpectedErrorHandler((error) => logger.warn(error.message));
 
@@ -82,7 +88,9 @@ const getArgs = (): Args => {
 	return validatePaths(args);
 };
 
-const startVscode = async (): Promise<void | void[]> => {
+
+// const startVscode = async (): boolean | Promise<void> => { // async (): Promise<any> => { // : Promise<void | void[]> => {
+const startVscode = (): boolean | Promise<void> => {
 	const args = getArgs();
 	const extra = args["_"] || [];
 	const options = {
@@ -97,18 +105,22 @@ const startVscode = async (): Promise<void | void[]> => {
 
 	if (enumToArray(AuthType).filter((t) => t === options.auth).length === 0) {
 		throw new Error(`'${options.auth}' is not a valid authentication type.`);
-	} else if (options.auth === "password" && !options.password) {
+	} /* else if (options.auth === "password" && !options.password) {
 		options.password = await generatePassword();
-	}
+	} */
 
 	if (!options.certKey && typeof options.certKey !== "undefined") {
 		throw new Error(`--cert-key cannot be blank`);
 	} else if (options.certKey && !options.cert) {
 		throw new Error(`--cert-key was provided but --cert was not`);
 	} if (!options.cert && typeof options.cert !== "undefined") {
-		const { cert, certKey } = await generateCertificate();
-		options.cert = cert;
-		options.certKey = certKey;
+		// const { cert, certKey } = // await
+			generateCertificate().then(({ cert, certKey }) => {
+				// const cert = a;
+				// const certKey = b;
+				options.cert = cert;
+				options.certKey = certKey;
+			});
 	}
 
 	enableCustomMarketplace();
@@ -119,10 +131,16 @@ const startVscode = async (): Promise<void | void[]> => {
 		socket: args.socket,
 	}, args);
 
-	const [serverAddress, /* ignore */] = await Promise.all([
+	const [serverAddress, /* ignore */] = [ "", ""];
+	// await
+	server.listen();
+
+	/* const [serverAddress, ] = await Promise.all([
 		server.listen(),
 		unpackExecutables(),
-	]);
+	]); */
+	//  Promise.all<T1, T2>(values: [T1 | Thenable<T1>, T2 | Thenable<T2>]): Promise<[T1, T2]>;
+
 	logger.info(`Server listening on ${serverAddress}`);
 
 	if (options.auth === "password" && !process.env.PASSWORD) {
@@ -150,9 +168,10 @@ const startVscode = async (): Promise<void | void[]> => {
 	if (!server.options.socket && args.open) {
 		// The web socket doesn't seem to work if browsing with 0.0.0.0.
 		const openAddress = serverAddress.replace(/:\/\/0.0.0.0/, "://localhost");
-		await open(openAddress).catch(console.error);
+		// await open(openAddress).catch(console.error);
 		logger.info(`  - Opened ${openAddress}`);
 	}
+	return true;
 };
 
 const startCli = (): boolean | Promise<void> => {
@@ -198,9 +217,13 @@ export class WrapperProcess {
 	private started?: Promise<void>;
 
 	public constructor() {
+
+		this.start();
+		/*
 		ipcMain.onMessage(async (message) => {
 			switch (message) {
 				case "relaunch":
+					// tslint:disable-next-line: no-unexternalized-strings
 					logger.info("Relaunching...");
 					this.started = undefined;
 					if (this.process) {
@@ -219,6 +242,7 @@ export class WrapperProcess {
 					break;
 			}
 		});
+		*/
 	}
 
 	public start(): Promise<void> {
@@ -244,9 +268,14 @@ export class WrapperProcess {
 	}
 }
 
-const main = async(): Promise<boolean | void | void[]> => {
+// const main = function() { // async() => { // : Promise<boolean | void | void[]> => {
+const main = (): boolean | Promise<void> => {
 	if (process.env.LAUNCH_VSCODE) {
-		await ipcMain.handshake();
+		// await
+		// ipcMain.handshake();
+
+		// await ret;
+		// .then(() => startVscode());
 		return startVscode();
 	}
 	return startCli() || new WrapperProcess().start();
@@ -282,7 +311,9 @@ if (!process.stdout.isTTY) {
 	);
 }
 
-main().catch((error) => {
+main();
+/* .catch((error) => {
 	logger.error(error.message);
 	exit(typeof error.code === "number" ? error.code : 1);
 });
+*/

@@ -3,13 +3,30 @@
 	"configurations": [
 		{
 			"type": "node",
+			"name": "attach :PickProcess",
+			"request": "attach",
+			"processId": "${command:PickProcess}"
+		},
+		{
+			"type": "node",
 			"request": "launch",
 			"name": "server main",
 			"program": "${workspaceFolder}/out/vs/server/main.js",
 			"stopOnEntry": true,
 			"args": [
-				"."
+				"--auth", "none",
+				"--open", "true",
+				"--status", "true",
+				"--trace", "true",
+				"--verbose", "true"
 			]
+		},
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach to Shared Process",
+			"port": 9222,
+			"urlFilter": "*"
 		},
 		{
 			"type": "node",
@@ -30,13 +47,6 @@
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"
 			]
-		},
-		{
-			"type": "chrome",
-			"request": "attach",
-			"name": "Attach to Shared Process",
-			"port": 9222,
-			"urlFilter": "*"
 		},
 		{
 			"type": "node",

@@ -7,7 +7,29 @@
 		"**/.DS_Store": true,
 		"build/**/*.js": {
 			"when": "$(basename).ts"
-		}
+		},
+		"**/node_modules/": true,
+        "yarn.lock": true,
+        "**/.config/*": true,
+        "**/.nano/*": true,
+        "**/.thumbnails/*": true,
+        "**/.forever/*": true,
+        "**/._*": true,
+        "**/.mention*": true,
+        "**/.editor*": true,
+        "**/.gita*": true,
+        "**/.github": true,
+        "**/*.bak": true,
+        "**/*.js.map": true,
+        "**/azure-*.yml": true,
+        "**/CONTR*.md": true,
+        "**/Third*.txt": true,
+		"**/LICENSE.txt": true,
+		"cglicenses.json": true,
+		"cgmanifest.json": true,
+		".prettierrc.json": true,
+		".eslintrc.json": true,
+		"tsfmt.json": true,
 	},
 	"files.associations": {
 		"cglicenses.json": "jsonc"
@@ -16,7 +38,6 @@
 		"**/node_modules": true,
 		"**/bower_components": true,
 		".build/**": true,
-		"out/**": true,
 		"out-build/**": true,
 		"out-vscode/**": true,
 		"i18n/**": true,

@@ -23,6 +23,12 @@ const compileClientTask = task.define('compile-client',
 		compilation.compileTask('src', 'out', false)));
 gulp.task(compileClientTask);
 
+const compileClientTask2 = task.define('compile-client2',
+	task.series(
+		util.rimraf('out'),
+		compilation.compileTask('src', 'out', false)));
+gulp.task(compileClientTask2);
+
 const watchClientTask = task.define('watch-client',
 	task.series(
 		util.rimraf('out'),

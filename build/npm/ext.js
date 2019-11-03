@@ -2,15 +2,15 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-//  node ./build/npm/postinstall
+//  node ./build/npm/ext
 
 const cp = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const yarn = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
 
+const is_ext = 1;
 const is_all = 0;
-const is_ext = 0;
 const is_build = 0;
 
 /**
@@ -19,8 +19,7 @@ const is_build = 0;
  */
 function yarnInstall(location, opts) {
 
-	console.log("yarn install",
-		(location + " ====================================================================").substr(0, 70));
+	console.log("yarn install", (location + " ====================================================================").substr(0, 70));
 	opts = opts || {};
 	opts.cwd = location;
 	opts.stdio = 'inherit';
@@ -44,7 +43,6 @@ yarnInstall('remote'); // node modules used by vscode server
 yarnInstall('remote/web'); // node modules used by vscode web
 
 if (is_ext == 1) {
-
 	const allExtensionFolders = fs.readdirSync('extensions');
 	const extensions = allExtensionFolders.filter(e => {
 		try {
@@ -85,11 +83,12 @@ if (is_all) {
 }
 if (is_build) {
 	yarnInstallBuildDependencies(); // node modules for watching, specific to host node version, not electron
+
+	// Remove the windows process tree typings as this causes duplicate identifier errors in tsc builds
+	const processTreeDts = path.join('node_modules', 'windows-process-tree', 'typings', 'windows-process-tree.d.ts');
+	if (fs.existsSync(processTreeDts)) {
+		console.log('Removing windows-process-tree.d.ts');
+		fs.unlinkSync(processTreeDts);
+	}
 }
 
-// Remove the windows process tree typings as this causes duplicate identifier errors in tsc builds
-const processTreeDts = path.join('node_modules', 'windows-process-tree', 'typings', 'windows-process-tree.d.ts');
-if (fs.existsSync(processTreeDts)) {
-	console.log('Removing windows-process-tree.d.ts');
-	fs.unlinkSync(processTreeDts);
-}

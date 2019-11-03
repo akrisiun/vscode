@@ -1,24 +1,24 @@
-import * as path from "path";
-import { VSBuffer } from "vs/base/common/buffer";
-import { Emitter, Event } from "vs/base/common/event";
-import { IDisposable } from "vs/base/common/lifecycle";
-import { OS } from "vs/base/common/platform";
-import { URI, UriComponents } from "vs/base/common/uri";
-import { transformOutgoingURIs } from "vs/base/common/uriIpc";
-import { IServerChannel } from "vs/base/parts/ipc/common/ipc";
-import { IDiagnosticInfo } from "vs/platform/diagnostics/common/diagnostics";
-import { IEnvironmentService } from "vs/platform/environment/common/environment";
-import { ExtensionIdentifier, IExtensionDescription } from "vs/platform/extensions/common/extensions";
-import { FileDeleteOptions, FileOpenOptions, FileOverwriteOptions, FileType, IStat, IWatchOptions } from "vs/platform/files/common/files";
-import { DiskFileSystemProvider } from "vs/platform/files/node/diskFileSystemProvider";
-import { ILogService } from "vs/platform/log/common/log";
-import product from "vs/platform/product/common/product";
-import { IRemoteAgentEnvironment } from "vs/platform/remote/common/remoteAgentEnvironment";
-import { ITelemetryService } from "vs/platform/telemetry/common/telemetry";
-import { INodeProxyService } from "vs/server/src/common/nodeProxy";
-import { getTranslations } from "vs/server/src/node/nls";
-import { getUriTransformer, localRequire } from "vs/server/src/node/util";
-import { ExtensionScanner, ExtensionScannerInput } from "vs/workbench/services/extensions/node/extensionPoints";
+import * as path from 'path';
+import { VSBuffer } from 'vs/base/common/buffer';
+import { Emitter, Event } from 'vs/base/common/event';
+import { IDisposable } from 'vs/base/common/lifecycle';
+import { OS } from 'vs/base/common/platform';
+import { URI, UriComponents } from 'vs/base/common/uri';
+import { transformOutgoingURIs } from 'vs/base/common/uriIpc';
+import { IServerChannel } from 'vs/base/parts/ipc/common/ipc';
+import { IDiagnosticInfo } from 'vs/platform/diagnostics/common/diagnostics';
+import { IEnvironmentService } from 'vs/platform/environment/common/environment';
+import { ExtensionIdentifier, IExtensionDescription } from 'vs/platform/extensions/common/extensions';
+import { FileDeleteOptions, FileOpenOptions, FileOverwriteOptions, FileType, IStat, IWatchOptions } from 'vs/platform/files/common/files';
+import { DiskFileSystemProvider } from 'vs/platform/files/node/diskFileSystemProvider';
+import { ILogService } from 'vs/platform/log/common/log';
+import product from 'vs/platform/product/common/product';
+import { IRemoteAgentEnvironment } from 'vs/platform/remote/common/remoteAgentEnvironment';
+import { ITelemetryService } from 'vs/platform/telemetry/common/telemetry';
+import { INodeProxyService } from 'vs/server/src/common/nodeProxy';
+import { getTranslations } from 'vs/server/src/node/nls';
+import { getUriTransformer, localRequire } from 'vs/server/src/node/util';
+import { ExtensionScanner, ExtensionScannerInput } from 'vs/workbench/services/extensions/node/extensionPoints';
 
 /**
  * Extend the file provider to allow unwatching.
@@ -205,6 +205,8 @@ export class ExtensionEnvironmentChannel implements IServerChannel {
 	}
 
 	private async getEnvironmentData(locale: string): Promise<IRemoteAgentEnvironment> {
+
+		console.log("environment.extensionsPath", this.environment.extensionsPath);
 		return {
 			pid: process.pid,
 			connectionToken: this.connectionToken,

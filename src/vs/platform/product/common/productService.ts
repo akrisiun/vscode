@@ -26,6 +26,7 @@ export interface IProductConfiguration {
 	readonly win32AppUserModelId?: string;
 	readonly win32MutexName?: string;
 	readonly applicationName: string;
+	readonly codeServerVersion: string;
 
 	readonly urlProtocol: string;
 	readonly dataFolderName: string;

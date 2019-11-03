@@ -2,16 +2,11 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-//  node ./build/npm/postinstall
 
 const cp = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const yarn = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
-
-const is_all = 0;
-const is_ext = 0;
-const is_build = 0;
 
 /**
  * @param {string} location
@@ -19,8 +14,7 @@ const is_build = 0;
  */
 function yarnInstall(location, opts) {
 
-	console.log("yarn install",
-		(location + " ====================================================================").substr(0, 70));
+	console.log("yarn install", (location + " ====================================================================").substr(0, 70));
 	opts = opts || {};
 	opts.cwd = location;
 	opts.stdio = 'inherit';
@@ -39,11 +33,10 @@ function yarnInstall(location, opts) {
 	}
 }
 
-yarnInstall('extensions'); // node modules shared by all extensions
-yarnInstall('remote'); // node modules used by vscode server
-yarnInstall('remote/web'); // node modules used by vscode web
-
-if (is_ext == 1) {
+if (0 == 1) { // is_ext
+	yarnInstall('extensions'); // node modules shared by all extensions
+	yarnInstall('remote'); // node modules used by vscode server
+	yarnInstall('remote/web'); // node modules used by vscode web
 
 	const allExtensionFolders = fs.readdirSync('extensions');
 	const extensions = allExtensionFolders.filter(e => {
@@ -78,14 +71,11 @@ runtime "${runtime}"`;
 	yarnInstall(watchPath, { env });
 }
 
-if (is_all) {
-	yarnInstall(`build`); // node modules required for build
-	yarnInstall('test/automation'); // node modules required for smoketest
-	yarnInstall('test/smoke'); // node modules required for smoketest
-}
-if (is_build) {
-	yarnInstallBuildDependencies(); // node modules for watching, specific to host node version, not electron
-}
+yarnInstall(`build`); // node modules required for build
+
+// yarnInstall('test/automation'); // node modules required for smoketest
+// yarnInstall('test/smoke'); // node modules required for smoketest
+yarnInstallBuildDependencies(); // node modules for watching, specific to host node version, not electron
 
 // Remove the windows process tree typings as this causes duplicate identifier errors in tsc builds
 const processTreeDts = path.join('node_modules', 'windows-process-tree', 'typings', 'windows-process-tree.d.ts');

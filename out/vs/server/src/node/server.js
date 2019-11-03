@@ -356,7 +356,14 @@ define(["require", "exports", "crypto", "fs", "http", "net", "path", "querystrin
             this.servicesPromise = this.initializeServices(args);
         }
         async listen() {
-            const environment = this.services.get(environment_1.IEnvironmentService);
+            var environment = this.services.get(environment_1.IEnvironmentService);
+            environment = environment || {};
+            if (!environment || typeof environment.extensionsPath !== "string") {
+                environment.extensionsPath = ["./extensions"];
+                environment.extraExtensionPaths = [];
+                console.log('environment.extensionsPath', environment.extensionsPath);
+            }
+
             const [address] = await Promise.all([
                 super.listen(), ...[
                     environment.extensionsPath,
@@ -384,8 +391,17 @@ define(["require", "exports", "crypto", "fs", "http", "net", "path", "querystrin
             }
         }
         async handleRequest(base, requestPath, parsedUrl, request) {
+
+            let base2 = "";
+            if (base[0] == '\\')
+                base2 = "/" + base.substr(1);
+            else
+                base2 = base;
+             console.log("handleRequest", base2, requestPath, parsedUrl.path);
+
             this.heartbeat();
-            switch (base) {
+
+            switch (base2) {
                 case "/": return this.getRoot(request, parsedUrl);
                 case "/resource":
                 case "/vscode-remote-resource":
@@ -408,6 +424,8 @@ define(["require", "exports", "crypto", "fs", "http", "net", "path", "querystrin
         }
         async getRoot(request, parsedUrl) {
             const filePath = path.join(this.serverRoot, "browser/workbench.html");
+            console.log('getroot .html', filePath);
+
             let [content, startPath] = await Promise.all([
                 util.promisify(fs.readFile)(filePath, "utf8"),
                 this.getFirstValidPath([
@@ -540,12 +558,18 @@ define(["require", "exports", "crypto", "fs", "http", "net", "path", "querystrin
             }
         }
         async initializeServices(args) {
+            console.log("initializeServices", args);
             const environmentService = new environmentService_1.EnvironmentService(args, process.execPath);
             const logService = new spdlogService_1.SpdLogService(remoteAgentService_1.RemoteExtensionLogFileName, environmentService.logsPath, log_1.getLogLevel(environmentService));
             const fileService = new fileService_1.FileService(logService);
             fileService.registerProvider(network_1.Schemas.file, new diskFileSystemProvider_1.DiskFileSystemProvider(logService));
-            this.allowedRequestPaths.push(path.join(environmentService.userDataPath, "clp"), // Language packs.
-            environmentService.extensionsPath, environmentService.builtinExtensionsPath, ...environmentService.extraExtensionPaths, ...environmentService.extraBuiltinExtensionPaths);
+            try {
+                this.allowedRequestPaths.push(path.join(environmentService.userDataPath, "clp"), // Language packs.
+                     environmentService.extensionsPath, environmentService.builtinExtensionsPath, ...environmentService.extraExtensionPaths, ...environmentService.extraBuiltinExtensionPaths);
+            } catch (err) {
+                console.log("fail environmentService.userDataPath", err);
+            }
+
             this.ipc.registerChannel("logger", new logIpc_1.LoggerChannel(logService));
             this.ipc.registerChannel(extensionHostDebugIpc_1.ExtensionHostDebugBroadcastChannel.ChannelName, new extensionHostDebugIpc_1.ExtensionHostDebugBroadcastChannel());
             this.services.set(log_1.ILogService, logService);
