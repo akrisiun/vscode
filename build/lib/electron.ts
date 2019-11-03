@@ -114,7 +114,7 @@ async function main(arch = process.arch): Promise<void> {
 	const isUpToDate = fs.existsSync(versionFile) && fs.readFileSync(versionFile, 'utf8') === `${version}`;
 
 	if (!isUpToDate) {
-		await util.rimraf(electronPath)();
+		/* await util.rimraf(electronPath)(); */
 		await util.streamToPromise(getElectron(arch)());
 	}
 }

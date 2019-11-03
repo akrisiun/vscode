@@ -286,11 +286,11 @@ const finalEditorResourcesTask = task.define('final-editor-resources', () => {
 gulp.task('editor-distro',
 	task.series(
 		task.parallel(
-			util.rimraf('out-editor-src'),
+			/* util.rimraf('out-editor-src'),
 			util.rimraf('out-editor-build'),
 			util.rimraf('out-editor-esm'),
 			util.rimraf('out-monaco-editor-core'),
-			util.rimraf('out-editor'),
+			util.rimraf('out-editor'), */
 			util.rimraf('out-editor-min')
 		),
 		extractEditorSrcTask,
