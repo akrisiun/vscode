@@ -5,7 +5,7 @@
 		// "target": "ES6",
 		// "sourceMap": true,
 		// "types": ["node"],
-		"no-unexternalized-strings": false,
+		// "no-unexternalized-strings": false,
 		"noImplicitAny": false,
 		"noImplicitReturns": false,
 		"experimentalDecorators": true,

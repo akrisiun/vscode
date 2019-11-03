@@ -111,7 +111,8 @@ define(["require", "exports", "child_process", "os", "path", "vs/base/common/err
         }
         if (!server.options.socket && args.open) {
             // The web socket doesn't seem to work if browsing with 0.0.0.0.
-            const openAddress = serverAddress.replace(/:\/\/0.0.0.0/, "://localhost");
+            // const openAddress = serverAddress.replace(/:\/\/0.0.0.0/, "://localhost");
+            const openAddress = serverAddress;
             await util_1.open(openAddress).catch(console.error);
             logger.info(`  - Opened ${openAddress}`);
         }
