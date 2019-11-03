@@ -149,7 +149,6 @@ define(["require", "exports", "path", "vs/base/common/buffer", "vs/base/common/e
         async call(context, command, args) {
             switch (command) {
                 case "getEnvironmentData":
-                    console.log("getEnvironmentData.. ");
                     return uriIpc_1.transformOutgoingURIs(await this.getEnvironmentData(args.language), util_1.getUriTransformer(context.remoteAuthority));
                 case "getDiagnosticInfo": return this.getDiagnosticInfo();
                 case "disableTelemetry": return this.disableTelemetry();
@@ -157,7 +156,6 @@ define(["require", "exports", "path", "vs/base/common/buffer", "vs/base/common/e
             throw new Error(`Invalid call "${command}"`);
         }
         async getEnvironmentData(locale) {
-
             console.log("environment.extensionsPath", this.environment.extensionsPath);
             return {
                 pid: process.pid,

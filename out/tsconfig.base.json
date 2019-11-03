@@ -2,8 +2,10 @@
 	"compilerOptions": {
 		"module": "amd",
 		"moduleResolution": "node",
+		// "target": "ES6",
 		// "sourceMap": true,
 		// "types": ["node"],
+		// "no-unexternalized-strings": false,
 		"noImplicitAny": false,
 		"noImplicitReturns": false,
 		"experimentalDecorators": true,

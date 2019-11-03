@@ -51,9 +51,29 @@ exports.load = function (entrypoint, onLoad, onError) {
 	}
 
 	onLoad = onLoad || function () { };
-	onError = onError || function (err) {
-		console.error("loader err", err);
-	};
+	onError = onError || function (err) { console.error(err); };
 
 	loader([entrypoint], onLoad, onError);
+};
+
+exports.entry = function (entrypoint, onLoad, onError) {
+	if (!entrypoint) {
+		return;
+	}
+
+	// cached data config
+	if (process.env['VSCODE_NODE_CACHED_DATA_DIR']) {
+		loader.config({
+			nodeCachedData: {
+				path: process.env['VSCODE_NODE_CACHED_DATA_DIR'],
+				seed: entrypoint
+			}
+		});
+	}
+
+	onLoad = onLoad || function () { };
+	onError = onError || function (err) { console.error(err); };
+
+	// import js from  entrypoint;
+	entrypoint(onLoad, onError);
 };
