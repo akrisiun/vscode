@@ -1,11 +1,12 @@
 
-const { app, BrowserWindow, ipcMain } = require('electron');
-const main = require('./main');
+let app = null;
+const vsmain = require('./out/main');
 
-if (main) {
-	main();
+if (!app && vsmain) {
+	app = vsmain();
 } else {
 	
+    const { app, BrowserWindow } = require('electron');
 	let mainWindow;
 	
 	function createWindow () {
@@ -38,7 +39,4 @@ if (main) {
 	  }
 	});
 	
-	ipcMain.on('app_version', (event) => {
-	  event.sender.send('app_version', { version: app.getVersion() });
-	});
 }

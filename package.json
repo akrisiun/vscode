@@ -25,6 +25,7 @@
     "builtin": "node build/lib/builtInExtensions.js --max-old-space-size=32384",
     "vscode-x64": "gulp vscode-win32-x64 --max-old-space-size=32384",
     "optimize": "gulp optimize-vscode --max-old-space-size=32384",
+    "x64-archive": "gulp vscode-win32-x64-archive --max-old-space-size=32384",
     "pack": "electron-builder build --publish never",
     "package": "rimraf release && yarn build && electron-builder build --publish never",
     "watch": "gulp watch --max_old_space_size=4095",

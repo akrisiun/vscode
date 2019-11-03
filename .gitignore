@@ -27,5 +27,11 @@ test-results/
 yarn-error.log
 *.bak
 *.js.map
+*.node
 out/vs/editor/test/
 out/vs/workbench/**/test/
+vscode-oss/builtInExtensions/
+vscode-oss/electron/
+vscode-oss/node_modules.asar.unpacked/
+
+vscode-oss/extensions/

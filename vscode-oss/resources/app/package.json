@@ -1,0 +1,51 @@
+{
+  "name": "vscode-oss",
+  "version": "1.40.0",
+  "distro": "d17c0d0353511f30b7f251bcb29f400b294bec36",
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "license": "MIT",
+  "main": "./out/main",
+  "private": true,
+  "engines": {
+    "vscode": "^1.32"
+  },
+  "scripts": {
+    "start": "../../code-oss.exe .",
+    "post": "./node_modules/.bin/electron-rebuild.cmd -f -w vscode-sqllite3",
+    "postinstall2": "node electron-rebuild -f -w vscode-sqlite3"
+  },
+  "dependencies": {
+    "iconv-lite": "0.5.0",
+    "keytar": "^4.11.0",
+    "native-is-elevated": "0.3.0",
+    "native-keymap": "2.0.0",
+    "native-watchdog": "1.2.0",
+    "node-pty": "^0.10.0-beta2",
+    "nsfw": "1.2.5",
+    "onigasm-umd": "^2.2.2",
+    "semver-umd": "^5.5.3",
+    "spdlog": "^0.9.0",
+    "vscode-minimist": "^1.2.1",
+    "vscode-proxy-agent": "^0.5.1",
+    "vscode-ripgrep": "^1.5.7",
+    "vscode-sqlite3": "4.0.8"
+  },
+  "devDependencies": {
+    "electron": "6.1.2",
+    "electron-builder": "^22.1.0",
+    "electron-rebuild": "^1.8.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akrisiun/vscode.git"
+  },
+  "optionalDependencies": {
+    "vscode-windows-ca-certs": "0.2.0",
+    "vscode-windows-registry": "1.0.2",
+    "windows-foreground-love": "0.2.0",
+    "windows-mutex": "0.3.0",
+    "windows-process-tree": "0.2.4"
+  }
+}

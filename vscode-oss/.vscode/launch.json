@@ -1,0 +1,69 @@
+{
+	"version": "0.1.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "electron main",
+			"protocol": "inspector",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+			"runtimeArgs": [
+				"--remote-debugging-port=9223",
+				"."
+			],
+			"windows": {
+				"runtimeExecutable": "${workspaceFolder}/electron/electron.exe"
+			}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "yarn start",
+			"program": "${workspaceFolder}/main.js",
+			"stopOnEntry": true,
+			"args": [
+				"."
+			]
+		},
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Attach to Extension Host",
+			"port": 5870,
+			"restart": true,
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			]
+		},
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Attach to CLI Process",
+			"port": 5874,
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			]
+		},
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach to VS Code",
+			"port": 9222
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch VS Code (Main Process)",
+			"runtimeExecutable": "${workspaceFolder}/scripts/code.sh",
+			"windows": {
+				"runtimeExecutable": "${workspaceFolder}/scripts/code.bat",
+			},
+			"runtimeArgs": [
+				"--no-cached-data"
+			],
+			"outFiles": [
+				"${workspaceFolder}/out/**/*.js"
+			]
+		},
+ 	],
+}
