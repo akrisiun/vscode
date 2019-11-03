@@ -16,6 +16,7 @@
     "preinstall": "node build/npm/preinstall.js",
     "postinstall": "node build/npm/postinstall.js",
     "tasks": "gulp --tasks",
+    "server": "node -r ts-node/register ./src/server.ts",
     "compile": "gulp compile --max_old_space_size=4095",
     "compile:c": "gulp compile-client --max-old-space-size=32384",
     "compile:b": "gulp compile-build --max-old-space-size=32384",

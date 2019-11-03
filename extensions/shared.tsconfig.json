@@ -4,8 +4,8 @@
 		"module": "commonjs",
 		"strict": true,
 		"alwaysStrict": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	}
