@@ -2,14 +2,6 @@
 // execution. We can still shim the fs into the binary even when bypassing. This
 // will ensure for example that a spawn like `${process.argv[0]} -e` will work
 // while still allowing us to access files within the binary.
+process.env.NBIN_BYPASS = true;
 
-process.env.NBIN_BYPASS = "true";
-
-// const cli = require("./vs/server/src/node/cli");
-// import * as cli from
-
-import { Amd }  from "../../bootstrap-amdts";
-const cli = "./src/node/cli";
-
-let amd = new Amd();
-amd.load(cli);
+require("../../bootstrap-amd").load("vs/server/src/node/cli");

@@ -35,3 +35,4 @@ vscode-oss/electron/
 vscode-oss/node_modules.asar.unpacked/
 
 vscode-oss/extensions/
+out/vs/base/test/

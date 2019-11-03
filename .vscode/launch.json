@@ -4,6 +4,16 @@
 		{
 			"type": "node",
 			"request": "launch",
+			"name": "server main",
+			"program": "${workspaceFolder}/out/vs/server/main.js",
+			"stopOnEntry": true,
+			"args": [
+				"."
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
 			"name": "Gulp Build",
 			"program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
 			"stopOnEntry": true,

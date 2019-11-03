@@ -2,9 +2,11 @@
 	"compilerOptions": {
 		"module": "amd",
 		"moduleResolution": "node",
-		"noImplicitAny": true,
+		// "sourceMap": true,
+		// "types": ["node"],
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
 		"experimentalDecorators": true,
-		"noImplicitReturns": true,
 		"noUnusedLocals": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
