@@ -18,6 +18,7 @@
     "postinstall2": "cd ./out/vs/server && echo $PWD && yarn",
     "ext": "node ./build/npm/ext",
     "gyp": "node ./build/npm/gyp",
+    "gyp2": "npm run --scripts-prepend-node-path=true gyp",
     "rebuild": "node-gyp rebuild",
     "gyp-spdlog": "npm rebuild spdlog",
     "tasks": "gulp --tasks",

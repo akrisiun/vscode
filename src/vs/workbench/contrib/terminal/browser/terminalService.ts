@@ -175,7 +175,7 @@ export class TerminalService implements ITerminalService {
 			return false;
 		}
 
-		if (this.configHelper.config.confirmOnExit) {
+		/* if (this.configHelper.config.confirmOnExit) {
 			// veto if configured to show confirmation and the user choosed not to exit
 			return this._showTerminalCloseConfirmation().then(veto => {
 				if (!veto) {
@@ -183,7 +183,7 @@ export class TerminalService implements ITerminalService {
 				}
 				return veto;
 			});
-		}
+		} */
 
 		this._isShuttingDown = true;
 
