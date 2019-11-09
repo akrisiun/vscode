@@ -25,8 +25,6 @@ define(["require", "exports", "vs/nls", "vs/base/common/lifecycle", "vs/base/par
                 const connection = this.getConnection();
                 if (connection) {
                     const client = new remoteAgentEnvironmentChannel_1.RemoteExtensionEnvironmentChannelClient(connection.getChannel('remoteextensionsenvironment'));
-
-                    console.log("getEnvironment.getEnvironmentData.. ");
                     this._environment = client.getEnvironmentData(connection.remoteAuthority, this._environmentService.extensionDevelopmentLocationURI);
                 }
                 else {
