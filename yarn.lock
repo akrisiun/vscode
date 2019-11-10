@@ -3803,7 +3803,7 @@ gulp-vinyl-zip@^2.1.2:
     yauzl "^2.2.1"
     yazl "^2.2.1"
 
-gulp@^4.0.0:
+gulp@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.0.tgz#95766c601dade4a77ed3e7b2b6dc03881b596366"
   integrity sha1-lXZsYB2t5Kd+0+eyttwDiBtZY2Y=
@@ -4838,6 +4838,11 @@ json5@^1.0.1:
   integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
   dependencies:
     minimist "^1.2.0"
+
+jsonc-parser@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-2.2.0.tgz#f206f87f9d49d644b7502052c04e82dd6392e9ef"
+  integrity sha512-4fLQxW1j/5fWj6p78vAlAafoCKtuBm6ghv+Ij5W2DrDx0qE+ZdEl2c6Ko1mgJNF5ftX1iEWQQ4Ap7+3GlhjkOA==
 
 jsonfile@^2.1.0:
   version "2.4.0"
@@ -8962,6 +8967,21 @@ vscode-debugprotocol@1.37.0:
   resolved "https://registry.yarnpkg.com/vscode-debugprotocol/-/vscode-debugprotocol-1.37.0.tgz#e8c4694a078d18ea1a639553a7a241b35c1e6f6d"
   integrity sha512-ppZLEBbFRVNsK0YpfgFi/x2CDyihx0F+UpdKmgeJcvi05UgSXYdO0n9sDVYwoGvvYQPvlpDQeWuY0nloOC4mPA==
 
+vscode-json-languageservice@3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/vscode-json-languageservice/-/vscode-json-languageservice-3.4.1.tgz#e051f3bb2de5d23995763deac108622a5e93604a"
+  integrity sha512-IWJreQ9HtBSyveqaC3UUEArUqCnt5zYLgHewSJ0CvxlIJfvY7yD8GDbLuLxGeHMWwSudYlODit1IfwNzvjZjEg==
+  dependencies:
+    jsonc-parser "^2.2.0"
+    vscode-languageserver-types "^3.15.0-next.5"
+    vscode-nls "^4.1.1"
+    vscode-uri "^2.1.0"
+
+vscode-languageserver-types@^3.15.0-next.5:
+  version "3.15.0-next.5"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-types/-/vscode-languageserver-types-3.15.0-next.5.tgz#863d711bf47b338ff5e63ae19fb20d4fcd4d713b"
+  integrity sha512-7hrELhTeWieUgex3+6692KjCkcmO/+V/bFItM5MHGcBotzwmjEuXjapLLYTYhIspuJ1ibRSik5MhX5YwLpsPiw==
+
 vscode-minimist@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vscode-minimist/-/vscode-minimist-1.2.1.tgz#e63d3f4a9bf3680dcb8f9304eed612323fd6926a"
@@ -8984,6 +9004,11 @@ vscode-nls-dev@^3.3.1:
     vinyl "^2.1.0"
     xml2js "^0.4.19"
     yargs "^13.2.4"
+
+vscode-nls@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/vscode-nls/-/vscode-nls-4.1.1.tgz#f9916b64e4947b20322defb1e676a495861f133c"
+  integrity sha512-4R+2UoUUU/LdnMnFjePxfLqNhBS8lrAFyX7pjb2ud/lqDkrUavFUTcG7wR0HBZFakae0Q6KLBFjMS6W93F403A==
 
 vscode-proxy-agent@^0.5.1:
   version "0.5.1"
@@ -9013,6 +9038,16 @@ vscode-textmate@^4.3.0:
   integrity sha512-MhEZ3hvxOVuYGsrRzW/PZLDR2VdtG2+V6TIKPvmE9JT+RAq/OtPlrFd1+ZQwBefoHEhjRNuRJ0OktcFezuxPmg==
   dependencies:
     oniguruma "^7.2.0"
+
+vscode-uri@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-2.0.3.tgz#25e5f37f552fbee3cec7e5f80cef8469cefc6543"
+  integrity sha512-4D3DI3F4uRy09WNtDGD93H9q034OHImxiIcSq664Hq1Y1AScehlP3qqZyTkX/RWxeu0MRMHGkrxYqm2qlDF/aw==
+
+vscode-uri@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-2.1.1.tgz#5aa1803391b6ebdd17d047f51365cf62c38f6e90"
+  integrity sha512-eY9jmGoEnVf8VE8xr5znSah7Qt1P/xsCdErz+g8HYZtJ7bZqKH5E3d+6oVNm1AC/c6IHUDokbmVXKOi4qPAC9A==
 
 vscode-windows-ca-certs@0.2.0:
   version "0.2.0"

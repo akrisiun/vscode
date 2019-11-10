@@ -2,15 +2,15 @@
 	"compilerOptions": {
 		"module": "amd",
 		"moduleResolution": "node",
-		"noImplicitAny": true,
 		"experimentalDecorators": true,
-		"noImplicitReturns": true,
 		"noUnusedLocals": true,
 		"noImplicitThis": true,
-		"alwaysStrict": true,
+		"alwaysStrict": false,
 		"strictBindCallApply": true,
 		"strictNullChecks": true,
 		"forceConsistentCasingInFileNames": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
 		"baseUrl": ".",
 		"paths": {
 			"vs/*": [
