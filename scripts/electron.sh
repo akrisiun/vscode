@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+# ./scripts./electron.sh
 
 set -e
+echo OSTYPE=$OSTYPE
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	realpath() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"; }
@@ -12,34 +14,10 @@ else
 	fi
 fi
 
+
 function code() {
+
 	cd "$ROOT"
-
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		NAME=`node -p "require('./product.json').nameLong"`
-		CODE="./.build/electron/$NAME.app/Contents/MacOS/Electron"
-	else
-		NAME=`node -p "require('./product.json').applicationName"`
-		CODE=".build/electron/$NAME"
-	fi
-
-	# Node modules
-	test -d node_modules || yarn
-
-	# Get electron
-	yarn electron
-
-	# Manage built-in extensions
-	if [[ "$1" == "--builtin" ]]; then
-		exec "$CODE" build/builtin
-		return
-	fi
-
-	# Sync built-in extensions
-	node build/lib/builtInExtensions.js
-
-	# Build
-	test -d out || yarn compile
 
 	# Configuration
 	export NODE_ENV=development
@@ -50,6 +28,8 @@ function code() {
 	export VSCODE_LOGS=
 
 	# Launch Code
+	export CODE="./.build/electron/Code - OSS.app/Contents/MacOS/Electron"
+
 	echo "$CODE . $@"
 	# ./.build/electron/Code - OSS.app/Contents/MacOS/Electron .
 	exec "$CODE" . "$@"

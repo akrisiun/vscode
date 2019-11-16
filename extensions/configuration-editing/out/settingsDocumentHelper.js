@@ -132,7 +132,7 @@ class SettingsDocument {
     }
     provideLanguageCompletionItems(_location, range, formatFunc = (l) => JSON.stringify(l)) {
         return vscode.languages.getLanguages().then(languages => {
-            const completionItems = [];
+            const completionItems = new Array();
             const configuration = vscode.workspace.getConfiguration();
             for (const language of languages) {
                 const inspect = configuration.inspect(`[${language}]`);

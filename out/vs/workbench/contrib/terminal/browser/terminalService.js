@@ -121,7 +121,10 @@ define(["require", "exports", "vs/nls", "vs/workbench/contrib/terminal/common/te
             this._extHostsReady[remoteAuthority] = { promise, resolve };
         }
         _onBeforeShutdown() {
-            if (this.terminalInstances.length === 0) {
+            // var count = this.terminalInstances.length;
+            var count = 0;  // no confirm!!! (ankr)
+
+            if (count === 0) {
                 // No terminal instances, don't veto
                 return false;
             }
