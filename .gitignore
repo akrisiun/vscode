@@ -3,9 +3,15 @@
 npm-debug.log
 Thumbs.db
 node_modules/
-.build/
 extensions/**/dist/
-out/
+# .build/
+# out/
+.build/electron/
+.build/log
+**/*.js.map
+**/out/test/
+out/**/base/test/
+out/vs/**/test/
 out-build/
 out-editor/
 out-editor-src/
@@ -31,3 +37,6 @@ coverage/
 test_data/
 test-results/
 yarn-error.log
+*.pak
+*.zip
+.arch*/

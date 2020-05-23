@@ -11,6 +11,9 @@ export const ITitleService = createDecorator<ITitleService>('titleService');
 export interface ITitleProperties {
 	isPure?: boolean;
 	isAdmin?: boolean;
+
+	// ankr
+	prefix?: string;
 }
 
 export interface ITitleService {

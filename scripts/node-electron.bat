@@ -10,6 +10,7 @@ set NAMESHORT=%NAMESHORT: "=%
 set NAMESHORT=%NAMESHORT:"=%.exe
 set CODE=".build\electron\%NAMESHORT%"
 
+echo "%CODE% %*"
 %CODE% %*
 
 popd
